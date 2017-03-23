@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # python 2
 # script for multiple find/replace pairs for all HTML/TXT files in a directory.
 
-import os,sys,csv,re
+import os,sys,csv,re, codecs
 
-inputDir = "dada_mail_foundation_email_templates-master"
+inputDir = "default"
 translateCSV = "dada-mail-translation-de-formal.csv"
 
 #filename;original,translation
@@ -18,9 +17,6 @@ for items in data:
 #sort the list, to first replace long strings
 findReplace.sort(key=lambda t: len(t[1]), reverse=True)
 
-for item in findReplace:
-  print item[1]
-
 def replaceStringInFile(filePath):
    "replaces all findStr by repStr in file filePath"
    tempName = filePath+'~~~'
@@ -32,7 +28,6 @@ def replaceStringInFile(filePath):
    for aPair in findReplace:
     if len(aPair[2].decode("utf-8")) > 0: #ignore empty translations
       outputText = re.sub(re.escape(aPair[1].decode("utf-8")), aPair[2].decode("utf-8"), fContent, count=0, flags=0)
-      fContent = outputText
 
    outputFile.write(outputText.encode("utf-8"))
 
@@ -48,5 +43,6 @@ def fileFilter(dummyArg, thisDir, dirChildrenList):
             replaceStringInFile(thisDir+'/'+thisChild)
         if '.txt' == os.path.splitext(thisChild)[1] and os.path.isfile(thisDir+'/'+thisChild):
             replaceStringInFile(thisDir+'/'+thisChild)
+
 
 os.path.walk(inputDir, fileFilter, None)

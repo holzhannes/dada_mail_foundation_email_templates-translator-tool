@@ -1,9 +1,9 @@
 # python 2
 # script for multiple find/replace pairs for all HTML/TXT files in a directory.
 
-import os,sys,csv,re, codecs
+import os,sys,csv,re,codecs
 
-inputDir = "default"
+inputDir = "email"
 translateCSV = "dada-mail-translation-de-formal.csv"
 
 #filename;original,translation
@@ -27,9 +27,11 @@ def replaceStringInFile(filePath):
 
    for aPair in findReplace:
     if len(aPair[2].decode("utf-8")) > 0: #ignore empty translations
-      outputText = re.sub(re.escape(aPair[1].decode("utf-8")), aPair[2].decode("utf-8"), fContent, count=0, flags=0)
+      outputText = re.sub(re.escape(unicode(aPair[1], "utf-8")), unicode(aPair[2], "utf-8"), fContent, count=0, flags=0)
+      fContent = outputText
+      fContent.encode('utf8', 'replace')
 
-   outputFile.write(outputText.encode("utf-8"))
+   outputFile.write(outputText.encode('utf8', 'replace'))
 
    outputFile.close()
    inputFile.close()

@@ -13,7 +13,7 @@ Place the unziped folder of [dada\_mail\_foundation\_email\_templates](https://g
 ```python
 translateCSV = "dada-mail-translation-YOUR-LANGUAGE-CODE.csv"
 ```
-4. run the comand: `pyhton translate.py`.
+4. run the comand: `python translate.py`.
 
 # Note
 

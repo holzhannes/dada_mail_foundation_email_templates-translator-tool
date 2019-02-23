@@ -4,7 +4,7 @@ Tool to translate the **[dada\_mail\_foundation\_email\_templates](https://githu
 
 # How to use?
 
-Place the unziped folder of [dada\_mail\_foundation\_email\_templates](https://github.com/justingit/dada_mail_foundation_email_templates/) or even a ready compiled Theme from `YOUR DATA INSTALLATION > dada_mail_support_files > themes > email` into the same level with the `dada-mail-translation-de-formal.csv` (Formal German translation .csv you may create your own) together with the `translate.py` and run the comand: `pyhton translate.py`.
+Place the unziped folder of [dada\_mail\_foundation\_email\_templates](https://github.com/justingit/dada_mail_foundation_email_templates/) or even a ready compiled Theme from `YOUR DATA INSTALLATION > dada_mail_support_files > themes > email` into the folder `email` `dada-mail-translation-de-formal.csv` (Formal German translation .csv you may create your own) together with the `translate.py` and run the comand: `python translate.py`.
 
 ## How can I translate Dada Mail Template to my language?
 1. Download the `.xlsx` or `.csv` and replace the content in the third column of the table with your translation.
